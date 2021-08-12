@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+   <!--css-->
+   <link rel="stylesheet" href="{% static 'css/comment.css' %}" type="text/css">
+   <!--폰트어썸 아이콘-->
+   <script src="https://kit.fontawesome.com/6e7751ea5a.js" crossorigin="anonymous"></script>
+   <!--폰트-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">  
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <!--네브바 자바-->
+   <script src="{% static 'css/main.js' %}" defer></script>
+    <title>댓글 작성하기</title>
+</head>
+<body>
+
+    <!--네브바-->
+    <nav class="navbar">     
+
+        <ul class="navbar_logo">
+            <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+            <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+        </ul>
+              
+        <ul class="navbar_menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            </li>
+              
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+    
+    
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% endif %}
+    
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Signup</a>
+            </li>
+            {% endif %}
+              
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+              {% endif %}
+            </li>
+  
+          <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+           
+          </ul>
+          <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+  
+    </nav>
+
+
+
+        
+    <div class="new_box" role="alert">
+
+        <div class="form_box">
+
+        
+        <h4 class="alert-heading">New Comment</h4>
+
+        <strong style="color: #D71514; margin-left: 20px ;">* Author name을 본인 닉네임과 동일하게 작성하십시오!</strong>
+
+        <br>
+        <br>
+
+        <form method="POST" class="post-form"> 
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <br>
+        <hr>
+        <br>
+        <p class="mb-0"><button type="submit" class="btn btn-light">등록</button></p>
+        </form>
+        <br>
+    
+      </div>
+
+    </div>
+
+
+    
+</body>
+</html>

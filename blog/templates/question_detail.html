@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question detail</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Answer the question</legend>
+        <form method="post">
+            {% csrf_token %}
+            {{ response_form }}
+            <input name="response" type="submit" value="Submit" />
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Add a comment</legend>
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form }}
+            <input name="comment" type="submit" value="Submit" />
+        </form>
+    </fieldset>
+</body>
+</html>

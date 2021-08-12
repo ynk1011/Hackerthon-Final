@@ -1,0 +1,29 @@
+.contents {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.third_box {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+    align-content: center;
+    /*margin-left: 30px;*/
+}
+
+.card {
+    background-color: #F5F4F2;
+    display: grid;
+    justify-content: space-between;
+}
+
+
+
+
+#jb-content {
+    
+    background-color: rgb(rgb(201, 201, 201), green, blue);
+    flex-grow: 1;
+}
+

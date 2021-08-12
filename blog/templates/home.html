@@ -1,0 +1,292 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 텍스트 카드 구현할 때 사용한 파일만 추가해뒀어요. -->
+    <link rel="stylesheet" href="{% static 'css/scrollbox.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}" type="text/css">
+    <!-- 텍스트 카드 스크롤 다운 효과 구현을 위해 넣어둔 소스입니다. aos가 들어있는 소스는 무조건 임포트 부탁드려요! -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/second.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/scrollbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/textani.css' %}">
+
+    <!--네브바 버튼 / 자바-->
+    <script src="{% static 'css/main.js' %}" defer></script>
+    <!--폰트어썸 아이콘-->
+    <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Gollaba Home</title>
+    <!-- 최신순/내가 쓴 글 관련 기능 -->
+    <script>
+      // get url query string
+      var getUrlParameter = function getUrlParameter(sParam) {
+          var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+              sURLVariables = sPageURL.split('&'),
+              sParameterName,
+              i;
+
+          for (i = 0; i < sURLVariables.length; i++) {
+              sParameterName = sURLVariables[i].split('=');
+
+              if (sParameterName[0] === sParam) {
+                  return sParameterName[1] === undefined ? true : sParameterName[1];
+              }
+          }
+      };
+      // 정렬방식 셀렉트 박스 유지
+      $(document).ready(function(){
+        var sort = getUrlParameter('sort');
+        if(sort == 'mypost'){
+          $('.sort-mypost').prop('selected', 'selected')
+        }else{
+          $('.sort-date').prop('selected', 'selected')
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+    function random_post(){
+        location.href="/random_post?blog_id={{blog_detail.id}}";
+    }
+    </script>
+
+    <script type="text/javascript">
+      function Popupopen() {
+        window.open("popup/", 'popup', "width=500, height=620");
+      }
+    </script>
+    
+  </head>
+
+
+
+
+<body onload="Popupopen();">
+   <!-- 네브 바 -->
+    
+   <nav class="navbar">     
+
+    <ul class="navbar_logo">
+        <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+        <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+    </ul>
+          
+    <ul class="navbar_menu">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">HOME</a>
+        </li>
+          
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Signup</a>
+        </li>
+        {% endif %}
+          
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+          {% endif %}
+        </li>
+
+      <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+      <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+       
+      </ul>
+      <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+
+</nav>
+
+<!--헤더 사진-->
+<div class="header" >
+
+  <div class="intro_text">
+       <h1> Gollaba </h1>
+     
+      <div class="topline">
+          <div class="topline-header">
+              <div class="firstline">
+
+                  매일 하는 고민,
+                  
+                  <div class="firstline-detail">
+                      <ul class="firstline-detail-list">
+                          <li>나 대신에 <span class="second">골라줘!</span></li>
+                          <li>이 메뉴 <span class="second">먹는다 vs 안 먹는다</span></li>
+                          <li>이거, <span class="second">도전한다 vs 안 한다</span></li>
+                          <li>이 티셔츠, <span class="second">무슨 색 살까?</span></li>
+                          <li>나 대신에 <span class="second">골라줘!</span></li>   
+                      </ul>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+<!--게시판-->
+<div class="mini_box">
+
+  <div class="mini_box_1">
+    <h1>🔥당신을 위한 실시간 인기투표글🔥</h1>
+    <ul>
+    {% for popular_blog in popular_blog.all %}
+    
+    <li><a href="{% url 'detail' popular_blog.id %}">
+        • {{popular_blog.author_name}} : {{popular_blog.title}}
+    </a></li>
+
+    {% endfor %}
+  </ul>
+     
+  </div>
+  
+  <div class="mini_box_2">
+        <h1>🌞골라바 소식🌞</h1>
+  
+        <table>
+            {% for list in postlist.all %}
+            <ul>
+                <li>• <a class="postlist" href="{% url 'posting' list.pk %}">{{list.postname}}...더보기</a></li>
+            </ul>
+            {% endfor %}
+        </table>
+
+      
+    </div>
+
+</div>
+
+<!-- 투표하기/내글보기 -->
+<div class="second_box">
+
+        
+  <div class="pick_text">
+      <div class="pick_text_1">
+          <h1>Gollaba's Pick</h1>
+          <p>❤를 잡아 실시간 진행 중인 투표에 참여하세요!</p>
+      </div>
+  </div>
+
+    
+  <div class="scroll">
+   
+    {% for blog in blogs.all %}
+    
+    <span><a href="{% url 'detail' blog.id %}">❤</a></span>
+
+    {% endfor %}
+  </div>
+    
+    <div class="box2"> <!--버튼 두개 -->
+      
+      {% if user.is_authenticated %}
+      <ul class="small_button">
+        <li><button class="bt_2"> <a href="{% url 'new' %}" style="color: ivory;">내 투표 올리기</a></button></li>
+        <li><button class="bt_2"><a href="{% url 'mypage' %}" style="color: ivory;">내 투표 결과 보기</a></button></li>
+      </ul>
+      {% endif %}
+
+      
+      {% if not user.is_authenticated %}
+      <ul class="small_button">
+        <li><button class="bt_2"> <a href="{% url 'login' %}" style="color: ivory;">로그인 하고 내 투표 올리기</a></button></li>
+        <li><button class="bt_2"><a href="{% url 'login' %}" style="color: ivory;">로그인 하고 내 투표 결과 보기</a></button></li>
+      </ul>
+      {% endif %}
+    </div> 
+    
+  
+    
+<!--게시글 나열-->
+      <div div class="card33">
+        <div class="third_box33">
+          {% for blog in blogs.all %}
+              <div id="jb-content" data-aos="fade-in">
+                <a href='{% url "detail" blog.id %}'>
+                  <h2>{{ blog.summary_title }}</h2>
+                 
+                      <br>
+                      <p>{{ blog.summary_body }}...</p>
+                  </a>
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+
+          
+</div>
+
+
+<!-- 텍스트 카드 스크롤 다운 효과를 위해서 넣어둔 소스입니다. body 끝나기 전에 들어가야 해서 위치 고정 부탁드려요 -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</div>
+
+</body>
+
+<!--footer-->
+<footer class="foot">
+
+  <li><a href=""><i class="fas fa-check-square"></i></a></li>
+  
+  <ul>
+      <li><a href="#">
+        03760 서울특별시 서대문구 이화여대길 52 </a></li>
+      <li><a href="#">사업자번호 : 224-86-00895 · 대표자 : 이화여대 · e-mail : ewha@gmail.com</a></li>
+      <li><a href="#">COPYRIGHT ⓒ HBH co.,Ltd. All rights reserved.</a></li>
+     
+  </ul>
+
+  <ul>
+      <li><a href="#">1886 - 2021</a></li>
+      <li><a href="#">오전 9시~12시 / 오후 1시~6시</a></li>
+      <li><a href="#">(주말, 공휴일 휴무)</a></li>
+      <li><a href="#">상담/문의 가능 </a></li>
+  </ul>
+
+</footer>
+</html>
+
+
+

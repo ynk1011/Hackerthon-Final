@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    
+    
+
+</head>
+
+<div class="alert alert-success" role="alert" style="font-family: 'Ubuntu', sans-serif;">
+    <h4 class="alert-heading">Editing Blog</h4>
+    
+    <form action="{% url 'update' blog.id %}" method="post">
+        <p>{% csrf_token %}
+        <p>Title : <input type="text" name="title" value = "{{ blog.title }}"></p>
+    
+        Text : 
+        <textarea name="body" id="" cols="150" rows="10" >{{ blog.body }}</textarea></p>
+        <hr>
+        <p class="mb-0"><button type="submit" class="btn btn-light">Submit</button></p>
+        
+    </form>
+  </div>

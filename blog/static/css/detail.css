@@ -1,0 +1,113 @@
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.outer {
+    width: 1000px;
+    background-color: rgb(236, 236, 236);
+    padding: 5%;
+}
+
+.title {
+    display: grid;
+    width: 1000px;
+}
+
+.body {
+    display: grid;
+    width: 90%
+}
+
+
+.voting {
+    background-color: antiquewhite;
+    width: 1000px;
+    height: 50px;
+    margin: 3%;
+}
+
+.date {
+    font-size: 15px;
+    color: black;
+}
+
+.comment {
+    border: 1px;
+    border-style: none;
+    padding: 15px;
+}
+
+.outer > .hashtag {
+    margin-bottom: 10px;
+    background-color:rgb(255, 255, 255);
+    display: inline-block;
+}
+
+.content-box {
+    margin: 10px;
+}
+
+/* 버튼 */
+.buttons{
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.btn{
+    text-decoration: none;
+    color: black;
+
+    background-color: rgb(255, 137, 116);
+    border-radius: 5px;
+    border-style: none;
+
+    padding: 5px;
+    margin-left: 2px;
+}
+
+
+.btn:hover{
+    cursor: pointer;
+   
+
+    background-color: rgb(252, 162, 146);
+    box-shadow: 2px 2px 2px 1px rgb(247, 145, 126, 0.3);
+    
+}
+
+/* 공유버튼 */
+
+.fb-share-button{
+    align-items: center;
+    line-height: 10px;
+}
+
+.share_naver{
+    background-color: rgb(155, 219, 92);
+    border-style: none;
+    padding: 0px 5px;
+    border-radius: 5px;
+
+    margin:0;
+
+    font-size: large;
+    
+}
+
+.shares{
+    display: flex;
+    margin-bottom: 10px;
+    
+    align-items: center;
+}
+
+.comments{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(228, 66, 55);
+    margin: 10px 5px;
+}

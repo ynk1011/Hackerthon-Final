@@ -1,0 +1,22 @@
+.foot{
+
+    background-color:#272422;
+
+    height: 200px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+   
+
+}
+
+.foot li a{
+    color: ivory;
+}
+
+i{
+font-size: 40px;
+}

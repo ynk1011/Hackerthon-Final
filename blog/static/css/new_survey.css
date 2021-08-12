@@ -1,0 +1,228 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+   
+    margin: 0px;
+    padding: 0px;
+    
+    height: auto;
+    
+}
+
+@font-face {
+    font-family: 'SLEIGothicTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SLEIGothicTTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar{
+
+
+    font-family: 'Bebas Neue'; /*영어폰트*/
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    height: auto;
+    
+
+    background-color: #272422;
+
+    font-size: 30px;
+    text-align: center;
+        
+}
+
+
+.navbar_logo {
+    display : flex;
+    list-style: none;
+    margin: 0;
+    text-decoration: none;
+    margin-left: 50px;
+
+}
+
+
+.navbar_logo li {
+    padding: 4px;
+    margin: 0;
+}
+
+
+.navbar_logo li a {
+    color: #D71514;
+    margin: 0;
+    text-decoration: none;
+
+}
+
+#rr {
+    color: ivory;
+}
+
+
+.navbar_menu {
+    display : flex;
+    list-style: none;
+   
+    margin:0;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.navbar_menu li{
+    padding: 4px; /*양옆 간격*/
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navbar_menu li a{
+    color: ivory;
+    text-decoration: none;
+    padding: 0 3px 0 3px;
+
+}
+
+
+.navbar_menu li:hover {
+    background-color: gray;
+    border-radius: 4px;
+}
+
+.nav-link{
+    margin:0;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.nav-item{
+    margin:0;
+     justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.navbar_toggleBtn {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 24px;
+    color: ivory;
+}
+
+
+
+
+.new_box{
+    margin: auto;
+    height: auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    width: 80%;
+    font-family: 'Ubuntu', sans-serif; 
+    background: #F5F4F2;
+
+
+}
+
+.form_box{
+
+    width: 90%;
+    margin: auto;
+
+    justify-content: center;
+    align-items: center;
+    
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+    border-width: 2px;
+
+    
+}
+
+
+.alert-heading{
+    text-align: center;
+    margin: 10px;
+}
+
+
+
+.box{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width:1080px){
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+        height: auto;
+
+    }
+
+        
+    .navbar_menu{
+        padding:0; /*양옆 간격*/}
+
+    .navbar_logo{
+        padding: 0;
+        float: left;
+        margin-left: 0;
+
+    }
+
+    .navbar_menu{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar_menu li{
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar_icons{
+        display: none;
+        justify-content: center;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .navbar_icons ul{
+        padding-left: 0;
+        justify-content: center;
+ 
+    }
+
+    .navbar_toggleBtn{
+        display: block;
+    }
+
+    .navbar_menu.active,
+    .navbar_icons.active {
+        display: flex;
+    }
+
+   
+
+
+}

@@ -1,0 +1,32 @@
+* {
+   
+    padding: 0;
+}
+
+.card33{
+    margin-top: 30px;
+}
+
+
+
+#jb-content {
+    width: 350px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+    background-color: #EDECEA; 
+    border-radius: 10px;
+
+}
+
+
+#jb-content:focus{
+    outline: 0;
+}
+
+#jb-content:hover{
+    background-color: #f8f7f4;
+    cursor: pointer;
+    box-shadow:0 4px 16px #dfdeddef; 
+}

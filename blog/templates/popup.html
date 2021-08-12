@@ -1,0 +1,67 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1e82e1c250.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+    <script src="{% static 'css/main.js' %}" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <nav class="navbar">
+    
+        <ul class="navbar_logo">
+            <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+            <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+        </ul>
+    </nav>
+
+    <h2 style="font-family: SLEIGothicTTF;">Gollaba가 처음이신가요?</h2>
+    <br>
+
+    <div class="big">
+        <p>사용자 참여형 투표 커뮤니티 <span style="font-style: italic; font-size: larger; color: crimson;">GOLLABA</span> 입니다.<br>
+            사소한 고민에 대한 여러가지 의견들을 빠르게 받아보세요.</p>
+
+        <br>
+
+        <div class="info">
+            <ul>
+                <li><span> &#128681;첫째, 투표 게시</span> <br> 홈 화면의 "내 투표 올리기" 버튼을 통해 <br>직접 투표글을 작성해서 여러 회원들의 의견을 모을 수 있습니다 :)</li>
+                <br>
+                <li><span> &#128681;둘째, 댓글 기능</span> <br> 보다 세부적인 조언을 원한다면 댓글을 남겨보세요!</li>
+                <br>
+                <li><span> &#128681;셋째, 게시글 링크 공유</span> <br> 페이스북  & 네이버로의 공유가 가능합니다</li>
+                    
+            </ul>
+        </div>
+
+
+        <br><br>
+        <h3>아래 버튼을 통해 바로 회원가입 후 GOLLABA를 이용해보세요! </h3>
+        <div class="buttons"><a class="btn" href="{% url 'register' %}">회원가입 바로가기</a></div>
+        
+
+    </div>
+
+  
+
+
+
+    
+</body>
+</html>

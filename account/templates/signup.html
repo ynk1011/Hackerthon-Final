@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}"><!--css-->
+    <script src="{% static 'css/main.js' %}" defer></script><!--자바-->
+    <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script><!--폰트어썸 아이콘-->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+    <title>Sign up</title>
+</head>
+<body>
+    <nav class="navbar">     
+
+        <ul class="navbar_logo">
+            <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+            <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+        </ul>
+        <ul class="navbar_menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            </li>
+
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+    
+    
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% endif %}
+    
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Signup</a>
+            </li>
+            {% endif %}
+              
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+              {% endif %}
+            </li>
+  
+          <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+           
+          </ul>
+          <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+  
+    </nav>
+
+    
+    <div class="login_box">
+        <div class="title">
+            <h1>Sign up</h1>
+            <i class="fas fa-user-plus"></i>
+         </div>
+
+    <form action="{% url 'register' %}" method="post" class="loginform">
+        {% csrf_token %} 
+        {{ form.as_p }}
+
+        <button type="submit">submit</button>
+
+        <div class="text">
+            Do you already have an ID? >> <a href="{% url 'register' %}">log in</a>
+        </div>
+
+    </form>
+
+</div>
+    
+</body>
+</html>

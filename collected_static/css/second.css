@@ -1,0 +1,155 @@
+
+@font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* *****미니 박스******* */
+
+.mini_box{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 90%;
+    height: 150px;
+
+    margin: auto;
+    padding: 0;
+    
+    
+}
+
+.mini_box_1{
+    background-color: ivory;
+    margin: 0;
+    padding-left: 50px;
+    padding-top: 20px;
+    width: 50%;
+   
+    
+}
+
+.mini_box_2{
+   
+    margin: 0;
+    padding-left: 50px;
+    padding-top: 20px;
+    background-color: #DCBA94;
+    width: 50%;
+   
+}
+
+
+.mini_box_1 ul{
+   
+    list-style: none;
+    padding: 0;
+}
+.mini_box_2 ul{
+   
+    list-style: none;
+    padding: 0;
+}
+
+
+.mini_box_1 h1{
+    color: #2E2D35;
+    font-family: 'ELAND_Choice_M';/*한글폰트*/
+    font-size: 1rem;
+    font-weight: bold;
+   
+}
+
+.mini_box_1 li{
+    color: #2E2D35;
+    font-family: 'ELAND_Choice_M';/*한글폰트*/
+    /*font-weight: bold;*/
+    font-size: 0.9rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+.mini_box_2 h1{
+    color: #2E2D35;
+    font-family: 'ELAND_Choice_M'; /*한글폰트*/
+    font-size: 1rem;
+    font-weight: bold;
+   
+}
+
+.mini_box_2 li{
+    color: #2E2D35;
+    font-family: 'ELAND_Choice_M'; /*한글폰트*/
+    font-size: 0.9rem;
+    /*font-weight: bold;*/
+   
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* *****두번째 박스******* */
+
+.second_box{
+
+    position: relative;
+    margin: auto;
+    padding: 0;
+
+    width: 90%;
+    height: 1500px;
+
+    /*max-width: 1500px;*/
+    background-color: #F5F4F2;
+
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pick_text{
+    margin: auto;
+    color: #2E2D35;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height: 130px;
+    width: 100%;
+
+    padding-top: 40px;
+    padding-bottom: 100px;
+
+}
+
+
+
+.pick_text h1{
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    padding: auto;
+    margin: auto;
+}
+
+.pick_text p {
+    font-family: 'SLEIGothicTTF'; /*한글폰트*/
+    text-align: center;
+    margin: 0;
+
+}
+
+
+
+.card33 {
+    background-color: #F5F4F2;
+}
+
+.third_box {
+    justify-content: center;
+}

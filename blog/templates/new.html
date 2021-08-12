@@ -1,0 +1,108 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새로운 글 작성하기</title>
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new.css' %}">
+    <!--네브바 자바-->
+    <script src="{% static 'css/main.js' %}" defer></script>
+    <!--폰트-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <!--폰트어썸 아이콘-->
+    <script src="https://kit.fontawesome.com/6e7751ea5a.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body style="font-family: 'SLEIGothicTTF';"> 
+    
+    <!--네브바-->
+    <nav class="navbar">     
+
+        <ul class="navbar_logo">
+            <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+            <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+        </ul>
+              
+        <ul class="navbar_menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            </li>
+              
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+    
+    
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% endif %}
+    
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Signup</a>
+            </li>
+            {% endif %}
+              
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+              {% endif %}
+            </li>
+  
+          <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+           
+          </ul>
+          <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+  
+    </nav>
+
+
+
+    <div class="new_box" >
+        <h1 class="alert-heading">🌞새로운 글 등록하기🌞</h1>
+
+        <div class="form_box">
+
+          <form class="vote" action="{% url 'create' %}" method="post">
+            <p> {% csrf_token %}
+              
+                 {{ form.as_p }}
+                 <br>
+
+                 <p>* 반드시 본인의 닉네임과 동일하게 작성하세요.</p>
+                  <br>
+                 
+                 <div class="hash"><p>,로 구분하여 해시태그를 작성하세요 : </p><input type = "text" name="hashtags" placeholder="해시태그"></p></div>
+                  <br>
+                 <button class="btn btn-secondary" type="submit" style="margin-left: 10px; margin-bottom: 10px; padding: 5px 15px;">제출</button>
+    
+        </form>
+    
+           
+         </div>
+    </div>
+    
+<!--폼 닫기-->
+</body>
+
+</div>

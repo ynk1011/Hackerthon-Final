@@ -1,0 +1,160 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--폰트어썸 아이콘-->
+    <script src="https://kit.fontawesome.com/1e82e1c250.js" crossorigin="anonymous"></script>
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+    <!--네브바 버튼 / 자바-->
+    <script src="{% static 'css/main.js' %}" defer></script>
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <title>My page</title>
+
+    
+</head>
+
+<body>
+
+
+  <!-- 네브 바 -->
+    
+  <nav class="navbar">     
+
+    <ul class="navbar_logo">
+        <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+        <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+    </ul>
+          
+    <ul class="navbar_menu">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">HOME</a>
+        </li>
+          
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Signup</a>
+        </li>
+        {% endif %}
+          
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+          {% endif %}
+        </li>
+
+      <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+      <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+       
+      </ul>
+      <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+
+</nav>
+<!--네브바-->
+
+
+<div class="content_box"  >
+    <h1 class="title"><span>❤ </span>Hello, My Page!<span> ❤</span></h1>
+            
+        {% if user.is_authenticated%}
+
+        <div class="box_1">
+
+            <h1 class="tt" >회원 정보</h1>
+
+            <div style="margin: 20px;">
+                <ul  style=" list-style: none;">
+
+                    <li id="li">1. 아이디 : {{user.username}}  </li>
+                    <li id="li">2. 닉네임 : {{user.nickname}}  </li>
+                    <li id="li">3. 나이: {{user.age}}  </li>
+                    <li id="li">4. 성별: {{user.gender}} </li>
+                    <li id="li">5. 직업 : {{user.job}} </li>
+                    <li id="li">6. 문의</li>
+                    <li id="li">7. 탈퇴</li>
+                </ul>
+            
+                {% else %}
+                <h2>로그인 하지 않았습니다.</h2>
+                {% endif %}
+            </div>
+
+         </div>
+
+        <hr>
+
+        <div class="box_1">
+
+          <h1 class="tt" >내가 쓴 글 모아보기</h1>
+
+          
+          {% for blog in blogs.all %}
+              <div class="cardbox">
+                <a href='{% url "detail" blog.id %}'>
+                  <h2>{{ blog.title }}</h2>
+                      <p>{{ blog.body }}</p></a>
+                  
+              </div>
+          
+          {% empty %}
+            
+            <p style="margin: 30px 30px;">아직 작성한 게시글이 없습니다.</p>
+
+            {% endfor %}
+        </div>
+
+    <hr>
+
+        <div class="box_1">
+            <h1 class="tt" >커뮤니티 설정</h1>
+
+           <div style="margin: 20px;">
+                <ul  style=" list-style: none;">
+
+                    <li id="li">1. 다크 모드  </li>
+                    <li id="li">2. 알림 설정  </li>
+                    <li id="li">3. 이용 제한 내역 </li>
+                    <li id="li">4. 공지사항 </li>
+                    <li id="li">5. 서비스 이용약관</li>
+                    <li id="li">6. 정보 동의 설정</li>
+                </ul>
+            </div>
+            
+            
+         </div>
+
+        <hr> 
+
+
+</div>
+
+
+   
+</body>
+
+    
+</html>

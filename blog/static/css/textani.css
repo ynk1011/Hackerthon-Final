@@ -1,0 +1,42 @@
+
+
+.scroll{
+    display: flex;
+    background-color: rgb(192, 192, 192);
+    height: auto;
+    width: 150px;
+    white-space:nowrap; 
+    overflow:hidden;
+
+    border-radius: 2px;
+    margin: auto;
+
+}
+
+   
+.scroll span{
+    animation : scrollText 10s linear infinite forwards;
+    margin: 0 3px;
+    
+}
+
+.scroll a{
+    color: rgb(233, 49, 49);
+}
+
+
+@media screen and (max-width:1080px){
+    
+    .scroll{
+        
+        margin-bottom: 40px;
+    
+    }
+    }
+
+    
+@keyframes scrollText{
+    0%,to{transform:translateX(-100px)}  50%{transform:translateX(100px)}}
+
+    
+

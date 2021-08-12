@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+    <!--네브바 버튼 / 자바-->
+    <script src="{% static 'css/main.js' %}" defer></script>
+    <!--폰트어썸 아이콘-->
+    <script src="https://kit.fontawesome.com/1b24a1a7da.js" crossorigin="anonymous"></script> 
+    <!--폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Survey Result</title>
+</head>
+<body>
+
+    <!-- 네브 바 -->
+    
+   <nav class="navbar">     
+
+    <ul class="navbar_logo">
+        <li><a href="{% url 'home' %}"><i class="fas fa-check-square"></i></a></li>
+        <li><a href="{% url 'home' %}" id="rr">Gollaba</a></li>
+    </ul>
+          
+    <ul class="navbar_menu">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">HOME</a>
+        </li>
+          
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Signup</a>
+        </li>
+        {% endif %}
+          
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'mypage' %}">MYPAGE</a>
+          {% endif %}
+        </li>
+
+      <li><a href="https://twitter.com/TwitterKorea"><i class="fab fa-twitter-square"></i></a></li>
+      <li><a href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a></li>
+       
+      </ul>
+      <a class="navbar_toggleBtn" href="#"><i class="fas fa-bars"></i></a>
+
+</nav>
+<!--네브바 끝-->
+
+<div class="container">
+
+  <div class="content">
+      <h2>🤔투표 결과🧡</h2>
+      <hr>
+        <br>
+      응답인원수 : {{count}}
+        <br>
+     
+        <br>
+
+      <table border="1">
+          <tr align="center">
+              <th>문항번호</th>
+              <th>응답수</th>
+              <th>응답비율</th>
+          </tr>
+        
+          {% for row,ans in surveyList %} 
+          <tr align="center">
+              <td>{{row.num}}</td>
+              <td>{{row.sum_num}}</td>
+              <td>{{row.rate}}</td>
+          </tr>
+          {% endfor %} 
+      </table>
+        <br>
+      <hr>
+        <br>
+
+
+      <button  href="{% url 'home' %}">HOME</button>
+</div>
+  </div>
+
+</body>
+</html>

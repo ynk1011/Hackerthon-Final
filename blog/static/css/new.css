@@ -1,0 +1,39 @@
+
+
+.new_box{
+    margin: auto;
+    height: auto;
+    padding-bottom: 30px;
+    width: 80%;
+    font-family: 'Ubuntu', sans-serif; 
+    background: #F5F4F2;
+
+
+}
+
+.form_box{
+
+    width: 90%;
+    
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+    border-width: 2px;
+
+    margin: 50px auto;
+    
+}
+
+.alert-heading{
+    text-align: center;
+    margin: 10px;
+}
+
+form{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.hash{
+    display: flex;
+}

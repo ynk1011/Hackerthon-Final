@@ -1,0 +1,18 @@
+.foot{
+    background-color:#272422;
+
+    height: 250px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+   
+
+}
+
+.foot li a{
+    color: ivory;
+}
+
